@@ -1,38 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
 :root {
-  /* Colors */
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --primary-color: #667eea;
-  --primary-dark: #764ba2;
-  --secondary-color: #f093fb;
-  --accent-color: #4facfe;
+  /* Primary Colors - Modern Blue */
+  --primary-color: #2563EB;
+  --primary-light: #3B82F6;
+  --primary-dark: #1D4ED8;
+  --primary-gradient: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
 
-  /* Backgrounds */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-dark: #2d3748;
-  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Secondary & Accent */
+  --secondary-color: #0EA5E9;
+  --accent-color: #F97316;
+  --success-color: #10B981;
+  --danger-color: #EF4444;
 
-  /* Text */
-  --text-primary: #2d3748;
-  --text-secondary: #718096;
-  --text-light: #a0aec0;
+  /* Glassmorphism Backgrounds */
+  --bg-primary: rgba(255, 255, 255, 0.85);
+  --bg-secondary: rgba(248, 250, 252, 0.7);
+  --bg-glass: rgba(255, 255, 255, 0.25);
+  --bg-glass-hover: rgba(255, 255, 255, 0.4);
+  --bg-dark: #0F172A;
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2563EB 100%);
+
+  /* Text Colors */
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-light: #94A3B8;
   --text-white: #ffffff;
 
-  /* Borders */
-  --border-color: #e2e8f0;
-  --border-radius-sm: 6px;
-  --border-radius-md: 10px;
+  /* Glassmorphism Borders */
+  --border-color: rgba(255, 255, 255, 0.3);
+  --border-glass: 1px solid rgba(255, 255, 255, 0.3);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
   --border-radius-lg: 16px;
-  --border-radius-xl: 20px;
+  --border-radius-xl: 24px;
+  --border-radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  /* Enhanced Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.3);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
 
-  /* Spacing */
+  /* Spacing - 8pt Grid */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -40,23 +52,33 @@
   --spacing-xl: 32px;
   --spacing-xxl: 48px;
 
-  /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  --font-size-sm: 12px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 20px;
-  --font-size-xxl: 28px;
+  /* Typography - Fira Sans/Code */
+  --font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'Fira Code', 'Fira Mono', monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
 
   /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Z-index */
+  /* Glassmorphism Effects */
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+
+  /* Z-index Scale */
   --z-dropdown: 100;
-  --z-modal: 200;
-  --z-tooltip: 300;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+  --z-toast: 500;
 }
 
 /* Dark mode support */
