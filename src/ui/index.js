@@ -3,7 +3,7 @@ import { HistoryManager } from '../history-manager.js'
 import { BatchGenerator } from '../batch-generator.js'
 import { LogoOverlay } from '../logo-overlay.js'
 import { createIcon, createButton } from './components.js'
-import { debounce, formatDate, truncateText, downloadDataUrl } from '../utils/helpers.js'
+import { debounce, formatDate, truncateText, downloadDataUrl, sanitizeFilename } from '../utils/helpers.js'
 
 export class UIController {
   constructor(i18n) {
@@ -390,8 +390,8 @@ export class UIController {
 
   downloadCurrent() {
     if (this.currentResult) {
-      const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-')
-      downloadDataUrl(this.currentResult.dataUrl, `qr-code-${timestamp}.png`)
+      const filename = sanitizeFilename(this.currentResult.text) + '.png'
+      downloadDataUrl(this.currentResult.dataUrl, filename)
     }
   }
 
@@ -587,7 +587,8 @@ export class UIController {
       // Download
       el.querySelector('.download-btn').addEventListener('click', (e) => {
         e.stopPropagation()
-        downloadDataUrl(item.dataUrl, `qr-code-${index + 1}.png`)
+        const filename = sanitizeFilename(item.text) + '.png'
+        downloadDataUrl(item.dataUrl, filename)
       })
 
       // Delete

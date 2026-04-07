@@ -39,7 +39,7 @@ export function downloadDataUrl(dataUrl, filename) {
 }
 
 export function generateId() {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2)
+  return Date.now().toString(36) + Math.random().toString(36).substring(2)
 }
 
 export function isValidUrl(string) {
@@ -58,4 +58,31 @@ export function getDomainFromUrl(url) {
   } catch {
     return null
   }
+}
+
+export function sanitizeFilename(text, maxLength = 50) {
+  if (!text || text.trim().length === 0) {
+    return 'qr-code'
+  }
+
+  // Replace invalid filename characters with underscores
+  let sanitized = text
+    .replace(/[<>:"/\\|?*]/g, '_')  // Windows/Unix invalid chars
+    .replace(/\s+/g, ' ')              // Collapse multiple spaces
+    .trim()
+
+  // Truncate if too long
+  if (sanitized.length > maxLength) {
+    sanitized = sanitized.substring(0, maxLength).trim()
+  }
+
+  // Remove trailing periods (Windows restriction)
+  sanitized = sanitized.replace(/\.$/, '')
+
+  // If empty after sanitization, return default
+  if (sanitized.length === 0) {
+    return 'qr-code'
+  }
+
+  return sanitized
 }
